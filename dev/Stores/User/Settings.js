@@ -43,6 +43,7 @@ export const SettingsUserStore = new class {
 			messageReadAuto: 0,
 
 			requestReadReceipt: 0,
+			attachmentWarning: 1,
 			requestDsn: 0,
 			requireTLS: 0,
 			pgpSign: 0,
@@ -113,6 +114,7 @@ export const SettingsUserStore = new class {
 			'ShowUnreadCount',
 			'UnhideKolabFolders',
 			'requestReadReceipt',
+			'attachmentWarning',
 			'requestDsn',
 			'requireTLS',
 			'pgpSign',

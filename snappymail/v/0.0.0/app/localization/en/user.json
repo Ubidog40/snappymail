@@ -257,6 +257,7 @@
 		"ALLOW_SPELLCHECK": "Enable browser spelling checker",
 		"ALLOW_DRAFT_AUTOSAVE": "Automatically save draft",
 		"BUTTON_REQUEST_READ_RECEIPT": "Request a read receipt",
+		"ATTACHMENT_WARNING": "Warn if message mentions attachment, but none attached.",
 		"BUTTON_MARK_AS_IMPORTANT": "Mark as important",
 		"BUTTON_REQUEST_DSN": "Request a delivery receipt",
 		"BUTTON_REQUIRE_TLS": "Require secure delivery",

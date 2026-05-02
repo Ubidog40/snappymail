@@ -488,6 +488,23 @@ export class ComposePopupView extends AbstractViewPopup {
 		if (!this.to().trim() && !this.cc().trim() && !this.bcc().trim()) {
 			this.emptyToError(true);
 		}
+		// Attachment warning check
+if (!this.emptyToError() && !this.attachmentsInErrorError() && !this.attachmentsInProcessError()) {
+    const bodyText = (this.oEditor ? this.oEditor.getData() : '').toLowerCase();
+    const keywords = [
+        'attached', 'attachment', 'attachments',
+        'see attached', 'find attached', 'i have attached',
+        'please find', 'enclosed', 'i\'ve attached'
+    ];
+    const mentionsAttachment = keywords.some(kw => bodyText.includes(kw));
+    const hasAttachments = this.attachments().length > 0;
+
+    if (mentionsAttachment && !hasAttachments && SettingsUserStore.attachmentWarning()) {
+        if (!confirm(i18n('COMPOSE/ATTACHMENT_WARNING') || 'You mentioned an attachment but none are attached. Send anyway?')) {
+            return;
+        }
+    }
+}
 
 		if (!this.emptyToError() && !this.attachmentsInErrorError() && !this.attachmentsInProcessError()) {
 			const sSentFolder = this.sentFolder();
